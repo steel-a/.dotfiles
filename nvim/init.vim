@@ -61,6 +61,8 @@ Plug 'preservim/nerdtree'               " File explorer
 Plug 'sheerun/vim-polyglot'           " Highlight para várias linguagens
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" File Explorer
+Plug 'preservim/nerdtree'
 
 " Autocomplete plugin ==================================================
 Plug 'davidhalter/jedi-vim'
@@ -126,6 +128,21 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 EOF
+
+"Nerdtree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if winnr() == winnr('h') && bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+nnoremap <C-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
+nnoremap <C-q> :w\|bd<CR>
+
 
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
 nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
