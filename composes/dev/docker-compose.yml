@@ -29,7 +29,7 @@ services:
       - PASSWORD_ACCESS=false #optional
       - USER_NAME= ${USER_NAME?err}
     ports:
-      - 2223:2222
+      - ${SSH_PORT?err}:2222
     depends_on:
       - db
     restart: unless-stopped
