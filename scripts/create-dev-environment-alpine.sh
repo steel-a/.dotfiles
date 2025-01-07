@@ -16,6 +16,11 @@ fi
 # Install Tmux Plugins
 DIRECTORY=~/.config/tmux/plugins/tpm
 if [ ! -d "$DIRECTORY" ]; then
+    echo "*****************************"
+    echo "*                           *"
+    echo "*   Temux: Run prefix + I   *"
+    echo "*                           *"
+    echo "*****************************"
     git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 fi
 
