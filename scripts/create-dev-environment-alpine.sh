@@ -29,7 +29,7 @@ fi
 # Remove duplicated line in .bash_history
 FILE=~/.bashrc 
 if ! grep -q .bash_history "$FILE"; then
-  echo "sed -i -n 'G; s/\n/&&/; /^\([ -~]*\n\).*\n\1/d; s/\n//; h; P' .bash_history" >> ~/.bashrc
+  echo "sed -i -n 'G; s/\n/&&/; /^\([ -~]*\n\).*\n\1/d; s/\n//; h; P' ~/.bash_history" >> ~/.bashrc
 fi
 
 # Install bash-completion
