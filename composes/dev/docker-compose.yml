@@ -24,12 +24,13 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Sao_Paulo
-      - PUBLIC_KEY_URL= ${PUBLIC_KEY_URL?err}
+      - PUBLIC_KEY_URL=${PUBLIC_KEY_URL?err}
       - SUDO_ACCESS=true #optional
       - PASSWORD_ACCESS=false #optional
-      - USER_NAME= ${USER_NAME?err}
+      - USER_NAME=${USER_NAME?err}
     ports:
       - ${SSH_PORT?err}:2222
     depends_on:
       - db
     restart: unless-stopped
+
