@@ -6,7 +6,7 @@ if ! grep -q alpine "$FILE"; then
 fi
 
 sudo apk --update add --no-cache bash-completion starship eza git git-lfs \
-     nerd-fonts tmux neovim python3
+     nerd-fonts font-jetbrains-mono-vf fontconfig tmux neovim python3
 
 # Install VimPlug
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
