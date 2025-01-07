@@ -18,6 +18,11 @@ if ! grep -q alias "$FILE"; then
     echo "alias ls='eza -l --icons --git -a'" >> ~/.bashrc
     echo "alias lt='eza --tree --level=2 --long --icons --git'" >> ~/.bashrc
     echo "alias vim='nvim'" >> ~/.bashrc
+    echo "alias gs='git status'" >> ~/.bashrc
+    echo "alias ga='git add'" >> ~/.bashrc
+    echo "alias gc='git commit -m'" >> ~/.bashrc
+    echo "alias gu='git push'" >> ~/.bashrc
+    echo "alias gd='git pull'" >> ~/.bashrc
 fi
 
 # Install Starchip Prompt
