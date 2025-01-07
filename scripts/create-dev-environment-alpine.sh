@@ -1,3 +1,4 @@
+
 FILE=/etc/os-release 
 if ! grep -q alpine "$FILE"; then
     echo "This script was created to run just in Alpine distribution"
@@ -10,6 +11,12 @@ sudo apk --update add --no-cache bash-completion starship eza git git-lfs \
 # Install VimPlug
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+fi
+
+# Install Tmux Plugins
+DIRECTORY=~/.config/tmux/plugins/tpm
+if [ ! -d "$DIRECTORY" ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 fi
 
 # Create alias
