@@ -5,7 +5,7 @@ if ! grep -q alpine "$FILE"; then
     exit 1
 fi
 
-sudo apk --update add --no-cache bash-completion starship eza git git-lfs \
+sudo apk --update add --no-cache bash-completion starship eza rclone git git-lfs \
      nerd-fonts font-jetbrains-mono-vf fontconfig tmux neovim python3
 
 # Install VimPlug
@@ -66,7 +66,4 @@ FILE=~/.bash_profile
 if ! grep -q .bashrc "$FILE"; then
     echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
 fi
-
-
-
 
