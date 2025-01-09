@@ -1,12 +1,44 @@
+#!/bin/bash
 
 FILE=/etc/os-release 
 if ! grep -q alpine "$FILE"; then
     echo "This script was created to run just in Alpine distribution"
     exit 1
 fi
+if [ ! "$EUID" -ne 0 ]; then
+    echo "Please don't run this script as root"
+    exit 1
+fi
 
 sudo apk --update add --no-cache bash-completion starship eza rclone git git-lfs \
      nerd-fonts font-jetbrains-mono-vf fontconfig tmux neovim python3
+
+# Create drive to get the secrets file
+FILE=~/.config/rclone/rclone.conf
+if ! grep -q secrets "$FILE"; then
+    echo 'Creating rclone drive "secrets" to get sensible files.'
+    echo '\n'
+    echo '    Mandatory files in this drive:'
+    echo '        /secrets/id_rsa '
+    echo '        /secrets/.gitconfig'
+    read -p "Enter cloud service type for rclone [mega]: " type
+    type=${type:-mega}
+    read -p "Enter user for this drive: " user
+    read -p "Enter password for this drive: " pass
+    rclone config create secrets mega user ${user} pass ${pass}
+    mkdir -p ~/.secrets
+    rclone copy secrets:/secrets/ ~/.secrets
+    if [ ! -f ~/.secrets/id_rsa ]; then echo "Missing [id_rsa]!" && exit 1; fi
+    if [ ! -f ~/.secrets/.gitconfig ]; then echo "Missing [.gitconfig]!" && exit 1; fi
+    # Copy ID_RSA
+    mv ~/.ssh/id_rsa ~/.ssh/id_rsa.old 2> /dev/null; \
+        cp ~/.secrets/id_rsa ~/.ssh/; chmod 600 ~/.ssh/id_rsa
+    # Link gitconfig
+    mv ~/.gitconfig ~/.gitconfig.old 2> /dev/null; \
+        ln -s  ~/.secrets/.gitconfig ~/.gitconfig
+fi
+
+
 
 # Install VimPlug
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
