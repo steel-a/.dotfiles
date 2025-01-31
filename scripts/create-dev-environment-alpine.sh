@@ -11,7 +11,7 @@ if [ ! "$EUID" -ne 0 ]; then
 fi
 
 sudo apk --update add --no-cache bash-completion starship eza rclone git git-lfs \
-     nerd-fonts font-jetbrains-mono-vf fontconfig tmux neovim python3
+     nerd-fonts font-jetbrains-mono-vf fontconfig tmux neovim python3 gpg gpg-agent
 
 # Create drive to get the secrets file
 FILE=~/.config/rclone/rclone.conf

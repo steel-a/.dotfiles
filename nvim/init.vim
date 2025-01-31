@@ -46,7 +46,7 @@ filetype plugin on
 set ttyfast                 " Speed up scrolling in Vim
 set spell                 " enable spell check (may need to download lang pack)
 " set noswapfile            " disable creating swap file
-
+let mapleader = " "
 
 call plug#begin()
 
@@ -101,9 +101,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme='dracula'
 "let g:airline_theme='sonokai'
 
-nmap <C-a> :NERDTreeToggle<CR>
-
-
 
 lua <<EOF
 require 'colorizer'.setup({
@@ -129,6 +126,18 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 EOF
 
+" Auto Close
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
+
+
+
 "Nerdtree
 nnoremap <silent> <leader>n :NERDTreeFocus<CR>
 nnoremap <silent> <C-n> :NERDTree<CR>
@@ -139,9 +148,16 @@ autocmd BufEnter * if winnr() == winnr('h') && bufname('#') =~ 'NERD_tree_\d\+' 
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
-nnoremap <silent> <C-h> :bp<CR>
-nnoremap <silent> <C-l> :bn<CR>
+nnoremap <silent> <C-n> :bp<CR>
+nnoremap <silent> <C-m> :bn<CR>
 nnoremap <silent> <C-q> :w\|bd<CR>
+
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
