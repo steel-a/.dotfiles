@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Initial verification.
+# 1) Is Alpine distro
+# 2) Is not root
 FILE=/etc/os-release 
 if ! grep -q alpine "$FILE"; then
     echo "This script was created to run just in Alpine distribution"
@@ -10,10 +13,23 @@ if [ ! "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-sudo apk --update add --no-cache bash-completion starship eza rclone git git-lfs \
-     nerd-fonts font-jetbrains-mono-vf fontconfig tmux neovim python3 gpg gpg-agent
+# SSH Server
+sudo apk --update add --no-cache openssh
+# Bash environment
+sudo apk --update add --no-cache bash-completion starship eza
+# For daily use
+sudo apk --update add --no-cache tmux neovim python3 rclone
+# For dev
+sudo apk --update add --no-cache git git-lfs nerd-fonts \
+    font-jetbrains-mono-vf fontconfig
+# For Mutt
+sudo apk --update add --no-cache gpg gpg-agent links mutt
 
 # Create drive to get the secrets file
+# Mount a drive to ~/.secrets folder
+# Specified drive must have:
+#    - /secrets/id_rsa
+#    - /secrets/.gitconfig
 FILE=~/.config/rclone/rclone.conf
 if ! grep -q secrets "$FILE"; then
     echo 'Creating rclone drive "secrets" to get sensible files.'
@@ -40,7 +56,7 @@ fi
 
 
 
-# Install VimPlug
+# Install VimPlug if plug.vim file doesn't exist
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
