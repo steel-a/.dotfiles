@@ -19,7 +19,7 @@ sudo apk --update add --no-cache openssh
 sudo apk --update add --no-cache bash bash-completion shadow starship eza
 chsh -s /bin/bash $USER
 # For daily use
-sudo apk --update add --no-cache tmux neovim python3 rclone
+sudo apk --update add --no-cache tmux neovim python3 py3-pynvim rclone
 # For dev
 sudo apk --update add --no-cache git git-lfs nerd-fonts \
     font-jetbrains-mono-vf fontconfig
