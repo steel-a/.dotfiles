@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Initial verification.
 # 1) Is Alpine distro
@@ -16,7 +16,8 @@ fi
 # SSH Server
 sudo apk --update add --no-cache openssh
 # Bash environment
-sudo apk --update add --no-cache bash-completion starship eza
+sudo apk --update add --no-cache bash bash-completion shadow starship eza
+chsh -s /bin/bash $USER
 # For daily use
 sudo apk --update add --no-cache tmux neovim python3 rclone
 # For dev
