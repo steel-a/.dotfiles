@@ -55,7 +55,11 @@ if ! grep -q secrets "$FILE"; then
         ln -s  ~/.secrets/.gitconfig ~/.gitconfig
 fi
 
-
+# Install my dot files
+git clone git@github.com:steel-a/.dotfiles.git ~/.dotfiles
+mkdir -p ~/.config/tmux && ln -s ~/.dotfiles/tmux/tmux.conf ~/.config/tmux/tmux.conf
+mkdir -p ~/.config/nvim && ln -s ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+ln -s ~/.dotfiles/starship.toml ~/.config/starship.toml
 
 # Install VimPlug if plug.vim file doesn't exist
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
