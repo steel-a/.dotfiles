@@ -78,7 +78,7 @@ if [ ! -d "$DIRECTORY" ]; then
 fi
 
 # Create alias
-FILE=~/.bashrc 
+FILE=~/.bashrc && touch $FILE
 if ! grep -q alias "$FILE"; then
     echo "alias ls='eza -l --icons --git -a'" >> ~/.bashrc
     echo "alias lt='eza --tree --level=2 --long --icons --git'" >> ~/.bashrc
@@ -91,32 +91,32 @@ if ! grep -q alias "$FILE"; then
 fi
 
 # Install Starchip Prompt
-FILE=~/.bashrc 
+FILE=~/.bashrc && touch $FILE
 if ! grep -q starship "$FILE"; then
-    echo 'eval "$(starship init bash)"' >> ~/.bashrc
+  echo 'eval "$(starship init bash)"' >> ~/.bashrc
 fi
 
 # Remove duplicated line in .bash_history
-FILE=~/.bashrc 
+FILE=~/.bashrc && touch $FILE
 if ! grep -q .bash_history "$FILE"; then
   echo "sed -i -n 'G; s/\n/&&/; /^\([ -~]*\n\).*\n\1/d; s/\n//; h; P' ~/.bash_history" >> ~/.bashrc
 fi
 
 # Install bash-completion
-FILE=~/.bashrc 
+FILE=~/.bashrc && touch $FILE
 if ! grep -q bash_completion.sh "$FILE"; then
-    echo 'source /etc/bash/bash_completion.sh' >> ~/.bashrc
+  echo 'source /etc/bash/bash_completion.sh' >> ~/.bashrc
 fi
-FILE=~/.inputrc 
+FILE=~/.inputrc && touch $FILE
 if ! grep -q history-search-backward "$FILE"; then
-    echo '"\e[A": history-search-backward' >> ~/.inputrc
-    echo '"\e[B": history-search-forward'  >> ~/.inputrc
+  echo '"\e[A": history-search-backward' >> ~/.inputrc
+  echo '"\e[B": history-search-forward'  >> ~/.inputrc
 fi
 
 
 # Call .bashrc in .bash_profile
-FILE=~/.bash_profile 
+FILE=~/.bash_profile && touch $FILE
 if ! grep -q .bashrc "$FILE"; then
-    echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
+  echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
 fi
 
