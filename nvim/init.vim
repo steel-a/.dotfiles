@@ -31,7 +31,10 @@ set termguicolors
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
 set ignorecase              " case insensitive
-set mouse=v                 " middle-click paste with
+""set mouse=v                 " middle-click paste with
+" Habilitar a seleção visual com o mouse
+""set selectmode=mouse
+
 set hlsearch                " highlight search
 set incsearch               " incremental search
 set expandtab               " converts tabs to white space
@@ -48,7 +51,12 @@ set spell                 " enable spell check (may need to download lang pack)
 " set noswapfile            " disable creating swap file
 let mapleader = " "
 
+set guifont=Font\ Awesome\ Regular\ 12
+set t_Co=256
+
+
 call plug#begin()
+
 
 " Visual N interface plugins ===========================================
 Plug 'ryanoasis/vim-devicons'           " Ícones para vários plugins
@@ -59,7 +67,7 @@ Plug 'preservim/nerdtree'               " File explorer
 
 " Plugins para Highlight ===============================================
 Plug 'sheerun/vim-polyglot'           " Highlight para várias linguagens
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " File Explorer
 Plug 'preservim/nerdtree'
@@ -125,6 +133,17 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 EOF
+
+
+" Atalho para copiar (Ctrl+C)
+vnoremap <C-c> "+y
+
+" Atalho para colar (Ctrl+V)
+nnoremap <C-v> "+p
+inoremap <C-v> <C-r>+
+cnoremap <C-v> <C-r>+
+
+
 
 " Auto Close
 inoremap " ""<left>
