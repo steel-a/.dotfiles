@@ -1,0 +1,19 @@
+!xterm*font: *-fixed-*-*-*-18-*
+xterm*faceName: "Font Awesome:pixelsize=20"
+xterm*font: xft:Font\ Awesome:pixelsize=20
+
+
+xterm*selectToClipboard: true
+xterm*VT100*translations: #override \n\
+    Ctrl Shift <Key>V:  insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>C:        select-end(CLIPBOARD)
+
+
+xterm*Background: black
+xterm*Foreground: linen
+!xterm*font: 10x20
+xterm*saveLines: 1000
+xterm*HiForeColor: white
+xterm*HiBackColor: #c06077
+xterm*geometry: +50+100
+
