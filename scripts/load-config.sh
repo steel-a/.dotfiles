@@ -45,7 +45,7 @@ wayland() {
 
 # Main
 # Criar links simbólicos comuns a ambos os ambientes
-create_symlink ~/.secrets/.gitconfig ~/.gitconfig
+create_symlink ~/.gitconfig ~/.secrets/.gitconfig
 create_symlink ~/.config/user-dirs.dirs ~/.dotfiles/xorg/user-dirs.dirs
 create_symlink ~/.config/nvim ~/.dotfiles/nvim
 mkdir -p ~/.config/kitty

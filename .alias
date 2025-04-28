@@ -1,2 +1,7 @@
 #alias n='NVIM_APPNAME=astronvim nvim'
 alias n='nvim'
+alias gs='git status'
+alias gc='git commit -m'
+alias gu='git push'
+alias gd='git pull'
+alias ga='git add'
