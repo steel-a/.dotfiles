@@ -48,7 +48,7 @@ window#waybar {
 #workspaces button {
     padding: 0px 3px; /* Ajusta o espaço interno */
     color: @color16;
-    background-color: @color3;
+    background-color: @color1;
     opacity: 0.8;
     border-radius: 15px;
     margin: 2 3px;
@@ -96,7 +96,7 @@ window#waybar {
 
 
 #clock {
-    background-color: @color3;
+    background-color: @color1;
     color: @color16;
     border: solid 3px @color16;
     border-radius: 15px;
