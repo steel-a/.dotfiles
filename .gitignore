@@ -1,4 +1,5 @@
 .env
+nvimlog
 /tmux/plugins/
 /neomutt/
 /rclone/

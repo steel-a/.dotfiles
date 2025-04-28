@@ -1,0 +1,202 @@
+@import 'colors-waybar.css';
+
+* {
+    /*font-family: VictorMono, Iosevka Nerd Font, Noto Sans CJK;*/
+    font-family: Iosevka, "Font Awesome 6", "Material icons", Noto Sans CJK;
+    font-size: 14px;
+    font-style: normal;
+    min-height: 0;
+}
+
+window#waybar {
+    padding: 5px 5px 5px 5px; /* Adiciona espaço dentro da Waybar, empurrando os elementos para baixo */
+    margin: 3px 3px 3px 3px; /* Certifique-se de que a margem externa está desativada */
+    border-top: 0px solid #282828;
+    color: transparent;
+    background: transparent;
+}
+
+
+#window {
+    background: #282828;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 16px;
+    /*border-left: solid 1px #282738;*/
+    /*border-right: solid 1px #282738;*/
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+#workspaces {
+
+    background-color: rgba(255,255,255,0.7);
+    border: solid 0px;
+    border-radius: 15px;
+    margin: 2px 2px 2px 2px;
+    padding: 1px 1px 1px 1px;
+    font-weight: bold;
+}
+
+
+
+
+#workspaces button {
+    padding: 0px 3px; /* Ajusta o espaço interno */
+    color: @color16;
+    background-color: @color3;
+    opacity: 0.8;
+    border-radius: 15px;
+    margin: 2 3px;
+}
+
+#workspaces button.active {
+    padding: 0px 8px; /* Ajusta o espaço interno */
+    color: #ffffff;
+    opacity: 1;
+}
+
+#workspaces button:hover {
+    background-color: @color11;
+}
+
+
+/****************************
+* Componentes nas caixinhas *
+****************************/
+#network, #battery, #battery.charging, #battery.warning:not(.charging), #bluetooth, #pulseaudio, #pulseaudio.muted, #custom-zypper {
+
+    background-color: rgba(255,255,255,0.7);
+    color: @color0;
+    border: solid 0px;
+    border-radius: 15px;
+    margin: 3px 3px 3px 3px;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
+}
+
+/*******************************
+* Componentes somente escritos *
+*******************************/
+#cpu, #memory, #temperature, #backlight, #disk {
+
+    background-color: transparent;
+    color: @color1;
+    border: solid 0px;
+    border-radius: 15px;
+    margin: 3px 3px 3px 3px;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
+}
+
+
+
+#clock {
+    background-color: @color3;
+    color: @color16;
+    border: solid 3px @color16;
+    border-radius: 15px;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
+}
+
+
+
+
+#custom-power {
+	color: #24283b;
+	background-color: #db4b4b;
+	border-radius: 5px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	padding: 5px 10px;
+}
+
+#tray {
+    padding: 0px 10px 0px 10px;
+}
+
+
+#battery.warning:not(.charging) {
+    color: #24283b;
+}
+
+
+
+
+#custom-randwall {
+    color: #f4d9e1;
+    border-radius: 8px;
+    margin-right: 0px;
+}
+
+#custom-launcher {
+    color: #e5809e;
+    background-color: #282828;
+    border-radius: 0px 24px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 0 20px 0 13px;
+    /*border-right: solid 1px #282738;*/
+    font-size: 20px;
+}
+
+#custom-launcher button:hover {
+    background-color: #FB4934;
+    color: transparent;
+    border-radius: 8px;
+    margin-right: -5px;
+    margin-left: 10px;
+}
+
+#custom-playerctl {
+	background: #282828;
+	padding-left: 15px;
+  padding-right: 14px;
+	border-radius: 16px;
+  /*border-left: solid 1px #282738;*/
+  /*border-right: solid 1px #282738;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+}
+
+#custom-playerlabel {
+    background: transparent;
+    padding-left: 10px;
+    padding-right: 15px;
+    border-radius: 16px;
+    /*border-left: solid 1px #282738;*/
+    /*border-right: solid 1px #282738;*/
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+#custom-wf-recorder {
+    padding: 0 20px;
+    color: #e5809e;
+    background-color: #1E1E2E;
+}
+
+
+#custom-hyprpicker {
+    background-color: #282828;
+    /*color: #8EC07C;*/
+    border-radius: 16px;
+    margin: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px 11px 0px 9px;
+    font-weight: bold;
+}

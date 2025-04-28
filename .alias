@@ -1,0 +1,2 @@
+#alias n='NVIM_APPNAME=astronvim nvim'
+alias n='nvim'
