@@ -1,0 +1,1 @@
+:TSInstall python :LspInstall pyright :DapInstall python
