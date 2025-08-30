@@ -15,6 +15,7 @@ hyprpaper &
 $HOME/.config/pywal/venv/bin/wal -i "$CAMINHO_LOCAL.wallpaper.jpg"
 ln -sf "$HOME/.cache/wal/colors-waybar.css" "$HOME/.config/waybar/colors-waybar.css"
 source "$HOME/.cache/wal/colors.sh"
+$HOME/.config/hypr/update_tmux_colors.sh
 
 contador=1
 while [ "$contador" -le 10 ]; do

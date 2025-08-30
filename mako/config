@@ -1,0 +1,31 @@
+# Global configuration options
+max-visible=5
+default-timeout=5000
+output=DP-1
+font=sans-serif 10
+background-color=#333333CC
+text-color=#FFFFFF
+border-size=1
+border-color=#888888
+padding=5
+margin=10
+anchor=top-right
+
+# Style options for specific criteria
+[urgency=critical]
+background-color=#FF0000CC
+text-color=#FFFFFF
+border-color=#AA0000
+default-timeout=0
+
+[app-name=Firefox]
+background-color=#FFA500CC
+
+[grouped]
+format=<b>Grouped Notifications (%g)</b>\n%s
+# Make grouped notifications invisible by default
+invisible=1
+
+[group-index=0]
+# Make the first notification in a group visible
+invisible=0

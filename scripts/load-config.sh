@@ -41,6 +41,7 @@ wayland() {
     mkdir -p ~/.config/waybar
     create_symlink ~/.config/waybar/config.jsonc ~/.dotfiles/waybar/config.jsonc
     create_symlink ~/.config/waybar/style.css ~/.dotfiles/waybar/style.css
+    create_symlink ~/.config/mako/config ~/.dotfiles/mako/config
 }
 
 # Main
